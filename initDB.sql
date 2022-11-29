@@ -4,7 +4,7 @@ set @@session.time_zone = '+00:00';
 
 DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS orderline;
-DROP TABLE IF EXISTS boardgame;
+DROP TABLE IF EXISTS board_game;
 DROP TABLE IF EXISTS translation;
 DROP TABLE IF EXISTS category;
 DROP TABLE IF EXISTS language;
@@ -49,7 +49,7 @@ CREATE TABLE translation(
     FOREIGN KEY (fk_category) REFERENCES category(label)
 );
 
-CREATE TABLE boardgame(
+CREATE TABLE board_game(
     id INTEGER UNIQUE NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) UNIQUE NOT NULL,
     editor_name VARCHAR(255) NOT NULL,
@@ -65,7 +65,7 @@ CREATE TABLE orderline(
     price DOUBLE NOT NULL,
     fk_board_game INTEGER NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (fk_board_game) REFERENCES boardgame(id)
+    FOREIGN KEY (fk_board_game) REFERENCES board_game(id)
 );
 
 CREATE TABLE orders(
@@ -92,7 +92,7 @@ INSERT INTO category(label) VALUES
 INSERT INTO translation(fk_language, fk_category, name) VALUES
 ('FRA', 'CONST&GEST', 'jeux de construction et de gestion');
 
-INSERT INTO boardgame(name, editor_name, price, description, fk_category) VALUES
+INSERT INTO board_game(name, editor_name, price, description, fk_category) VALUES
 ('Carcassonne', 'Filosofia', 35.20, 'Construisez une cité médiévale, et placez-y vos chevaliers dans les plus grandes villes, vos brigands sur les plus grands chemins, vos moines dans les monastères, et vos paysans sur les champs au pied des villes.','CONST&GEST');
 
 INSERT INTO orderline(quantity, price, fk_board_game) VALUES
