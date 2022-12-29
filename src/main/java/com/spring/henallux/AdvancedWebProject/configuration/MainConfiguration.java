@@ -8,5 +8,4 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 public class MainConfiguration implements WebMvcConfigurer {
-
 }

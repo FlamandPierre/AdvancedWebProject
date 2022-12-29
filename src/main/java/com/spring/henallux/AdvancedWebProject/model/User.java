@@ -18,7 +18,6 @@ public class User implements UserDetails {
     private String lastname;
     private String email;
     private Integer loyaltyPoints;
-    private Date creationDate;
     private String address;
     private String phoneNumber;
     private Date birthdate;
@@ -35,7 +34,6 @@ public class User implements UserDetails {
     public void setLastname(String lastname) { this.lastname = lastname; }
     public void setEmail(String email) { this.email = email; }
     public void setLoyaltyPoints(Integer loyaltyPoints) { this.loyaltyPoints = loyaltyPoints; }
-    public void setCreationDate(Date creationDate) { this.creationDate = creationDate; }
     public void setAddress(String address) { this.address = address; }
     public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
     public void setBirthdate(Date birthdate) { this.birthdate = birthdate; }
@@ -45,7 +43,6 @@ public class User implements UserDetails {
     public String getLastname() { return lastname; }
     public String getEmail() { return email; }
     public Integer getLoyaltyPoints() { return loyaltyPoints; }
-    public Date getCreationDate() { return creationDate; }
     public String getAddress() { return address; }
     public String getPhoneNumber() { return phoneNumber; }
     public Date getBirthdate() { return birthdate; }
