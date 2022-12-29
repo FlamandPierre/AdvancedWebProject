@@ -7,8 +7,6 @@
     <title>${title}</title>
 </head>
 <body>
-    <c:forEach items="${categories}" var="category">
-        <h1 id="${category.getLabel()}" class="category">${category.getLabel()}</h1>
-    </c:forEach>
+THIS IS THE HOME PAGE
 </body>
 </html>

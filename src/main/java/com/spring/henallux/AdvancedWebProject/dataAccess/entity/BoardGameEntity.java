@@ -3,7 +3,7 @@ package com.spring.henallux.AdvancedWebProject.dataAccess.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "BoardGame")
+@Table(name = "board_game")
 public class BoardGameEntity {
 
     @Id
@@ -11,7 +11,7 @@ public class BoardGameEntity {
     private Integer id;
     @Column(name = "name")
     private String name;
-    @Column(name = "editorName")
+    @Column(name = "editor_name")
     private String editorName;
     @Column(name = "price")
     private Double price;

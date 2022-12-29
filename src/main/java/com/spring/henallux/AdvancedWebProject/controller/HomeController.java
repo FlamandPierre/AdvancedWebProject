@@ -21,8 +21,8 @@ public class HomeController {
 
     @RequestMapping (method = RequestMethod.GET)
     public String home (Model model) {
-        model.addAttribute("categories", categoryDAO.getAllCategories());
-        System.out.println(categoryDAO.getAllCategories());
+        //model.addAttribute("categories", categoryDAO.getAllCategories());
+        //System.out.println(categoryDAO.getAllCategories());
         return "integrated:home";
     }
 

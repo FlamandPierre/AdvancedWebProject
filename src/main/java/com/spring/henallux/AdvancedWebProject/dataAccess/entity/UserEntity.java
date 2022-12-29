@@ -20,11 +20,11 @@ public class UserEntity {
     private String lastname;
     @Column(name = "email")
     private String email;
-    @Column(name = "loyaltyPoints")
+    @Column(name = "loyalty_points")
     private Integer loyaltyPoints;
     @Column(name = "address")
     private String address;
-    @Column(name = "phoneNumber")
+    @Column(name = "phone_number")
     private String phoneNumber;
     @Column(name = "birthdate")
     private Date birthdate;
