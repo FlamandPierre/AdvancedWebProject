@@ -8,8 +8,6 @@ import java.util.Date;
 public class UserEntity {
 
     @Id
-    @Column(name = "id")
-    private Integer id;
     @Column(name = "username")
     private String username;
     @Column(name = "password")
@@ -18,8 +16,6 @@ public class UserEntity {
     private String firstname;
     @Column(name = "lastname")
     private String lastname;
-    @Column(name = "email")
-    private String email;
     @Column(name = "loyalty_points")
     private Integer loyaltyPoints;
     @Column(name = "address")
@@ -41,10 +37,6 @@ public class UserEntity {
 
     public UserEntity() {}
 
-
-    public Integer getId() {
-        return id;
-    }
     public String getUsername() {
         return username;
     }
@@ -56,9 +48,6 @@ public class UserEntity {
     }
     public String getLastname() {
         return lastname;
-    }
-    public String getEmail() {
-        return email;
     }
     public Integer getLoyaltyPoints() {
         return loyaltyPoints;
@@ -88,9 +77,6 @@ public class UserEntity {
         return enabled;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
     public void setUsername(String username) {
         this.username = username;
     }
@@ -102,9 +88,6 @@ public class UserEntity {
     }
     public void setLastname(String lastname) {
         this.lastname = lastname;
-    }
-    public void setEmail(String email) {
-        this.email = email;
     }
     public void setLoyaltyPoints(Integer loyaltyPoints) {
         this.loyaltyPoints = loyaltyPoints;

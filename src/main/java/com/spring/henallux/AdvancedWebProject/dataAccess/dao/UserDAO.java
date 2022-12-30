@@ -1,9 +1,11 @@
 package com.spring.henallux.AdvancedWebProject.dataAccess.dao;
 
+import com.spring.henallux.AdvancedWebProject.dataAccess.entity.UserEntity;
 import com.spring.henallux.AdvancedWebProject.dataAccess.repository.UserRepository;
 import com.spring.henallux.AdvancedWebProject.dataAccess.util.ProviderConverter;
 import com.spring.henallux.AdvancedWebProject.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -23,5 +25,21 @@ public class UserDAO implements UserDataAccess{
     @Override
     public User findByUsername(String username) {
         return providerConverter.userEntityToUserModel(userRepository.findByUsername(username));
+    }
+
+    @Override
+    public User addUser(User newUser) {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String encryptedPassword;
+        encryptedPassword = encoder.encode(newUser.getPassword());
+        newUser.setPassword(encryptedPassword);
+        UserEntity newUserEntity = providerConverter.userModelToUserEntity(newUser);
+        newUserEntity = userRepository.save(newUserEntity);
+        return providerConverter.userEntityToUserModel(newUserEntity);
+    }
+
+    @Override
+    public Boolean exists(String username) {
+        return userRepository.existsById(username);
     }
 }

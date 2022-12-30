@@ -11,12 +11,10 @@ import java.util.List;
 
 public class User implements UserDetails {
 
-    private Integer id;
     private String username;
     private String password;
     private String firstname;
     private String lastname;
-    private String email;
     private Integer loyaltyPoints;
     private String address;
     private String phoneNumber;
@@ -29,19 +27,31 @@ public class User implements UserDetails {
 
     public User() {}
 
-    public void setId(Integer id) { this.id = id; }
+    public User(UserForm userForm) {
+        username = userForm.getUsername();
+        password = userForm.getPassword();
+        firstname = userForm.getFirstname();
+        lastname = userForm.getLastname();
+        loyaltyPoints = 0;
+        address = userForm.getAddress();
+        phoneNumber = userForm.getPhoneNumber();
+        birthdate = userForm.getBirthdate();
+        authorities = "ROLE_USER";
+        accountNonExpired = true;
+        accountNonLocked = true;
+        credentialsNonExpired = true;
+        enabled = true;
+    }
+
     public void setFirstname(String firstname) { this.firstname = firstname; }
     public void setLastname(String lastname) { this.lastname = lastname; }
-    public void setEmail(String email) { this.email = email; }
     public void setLoyaltyPoints(Integer loyaltyPoints) { this.loyaltyPoints = loyaltyPoints; }
     public void setAddress(String address) { this.address = address; }
     public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
     public void setBirthdate(Date birthdate) { this.birthdate = birthdate; }
 
-    public Integer getId() { return id; }
     public String getFirstname() { return firstname; }
     public String getLastname() { return lastname; }
-    public String getEmail() { return email; }
     public Integer getLoyaltyPoints() { return loyaltyPoints; }
     public String getAddress() { return address; }
     public String getPhoneNumber() { return phoneNumber; }

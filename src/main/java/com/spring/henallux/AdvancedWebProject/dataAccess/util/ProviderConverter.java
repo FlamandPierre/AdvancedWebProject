@@ -27,4 +27,9 @@ public class ProviderConverter {
     public Category categoryEntityToCategoryModel(CategoryEntity categoryEntity) {
         return mapper.map(categoryEntity, Category.class);
     }
+
+    //Model -> Entity
+    public UserEntity userModelToUserEntity(User user) {
+        return mapper.map(user, UserEntity.class);
+    }
 }

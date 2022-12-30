@@ -12,12 +12,10 @@ DROP TABLE IF EXISTS language;
 
 CREATE TABLE user
 (
-    id INTEGER UNIQUE NOT NULL AUTO_INCREMENT,
     username VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(60) NOT NULL,
     firstname VARCHAR(255) NOT NULL,
     lastname VARCHAR(255) NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL,
     loyalty_points INTEGER NOT NULL,
     address VARCHAR(255) NOT NULL,
     phone_number VARCHAR(255) NOT NULL,
@@ -27,7 +25,7 @@ CREATE TABLE user
     account_non_locked BIT NOT NULL,
     credentials_non_expired BIT NOT NULL,
     enabled BIT NOT NULL,
-    PRIMARY KEY (id)
+    PRIMARY KEY (username)
 );
 
 CREATE TABLE `order`(
@@ -35,9 +33,10 @@ CREATE TABLE `order`(
     date DATE NOT NULL,
     is_paid BIT NOT NULL,
     reduction DOUBLE NOT NULL,
-    fk_user INTEGER NOT NULL,
+    fk_user VARCHAR(255)
+        NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (fk_user) REFERENCES user (id)
+    FOREIGN KEY (fk_user) REFERENCES user (username)
 );
 
 CREATE TABLE language
@@ -82,11 +81,11 @@ CREATE TABLE order_line(
     FOREIGN KEY (fk_boardGame) REFERENCES board_game (id)
 );
 
-INSERT INTO user(username, password, firstname, lastname, email, loyalty_points, address, phone_number, birthdate, authorities, account_non_expired, account_non_locked, credentials_non_expired, enabled)VALUES
-('test', '$2a$10$wWXHc7YKDkvW/BkjHPXf9eRiLVngtCcJA69kQwt455Xalxk3Be9y6','test', 'test', 'test@test.com', 25, 'rue du test 42 5000 NAMUR', '0032666424242', '2000-01-01', 'ROLE_USER', 1, 1, 1, 1);
+INSERT INTO user(username, password, firstname, lastname, loyalty_points, address, phone_number, birthdate, authorities, account_non_expired, account_non_locked, credentials_non_expired, enabled)VALUES
+('test@test.com', '$2a$10$wWXHc7YKDkvW/BkjHPXf9eRiLVngtCcJA69kQwt455Xalxk3Be9y6','test', 'test', 25, 'rue du test 42 5000 NAMUR', '0032666424242', '2000-01-01', 'ROLE_USER', 1, 1, 1, 1);
 
 INSERT INTO `order`(date, is_paid, reduction, fk_user)VALUES
-    ('2022-11-29', 1, 0.0, 1);
+    ('2022-11-29', 1, 0.0, 'test@test.com');
 
 INSERT INTO language(code)VALUES
 ('FRA');
