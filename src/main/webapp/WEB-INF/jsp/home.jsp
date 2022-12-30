@@ -3,10 +3,11 @@
 <%@ include file="include/importTags.jsp"%>
 <!DOCTYPE html>
 <html>
-<head>
-    <title>${title}</title>
-</head>
-<body>
-THIS IS THE HOME PAGE
-</body>
+    <head>
+        <title>Baxydia</title>
+        <link type="text/css" href="<spring:url value='/css/styles.css'/>" rel="Stylesheet">
+    </head>
+    <body class="mainContainer">
+        THIS IS THE HOME PAGE
+    </body>
 </html>
