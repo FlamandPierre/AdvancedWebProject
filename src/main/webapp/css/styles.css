@@ -1,0 +1,48 @@
+* {
+    font-family: Calibri;
+}
+
+.header {
+    text-align: center;
+    overflow: hidden;
+    background-color: #282A35;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    color: white;
+    padding-left: 8px;
+    margin-left: -8px;
+}
+
+.headerContent {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    white-space: nowrap;
+}
+
+.headerLeft {
+    float: left;
+}
+.headerMiddle {
+    width: 30px;
+    height: 30px;
+    -webkit-filter: invert(100%);
+    margin-bottom: -10px;
+    margin-top: -10px;
+    margin-left: 75%;
+}
+.headerRight {
+    float: right;
+    margin-right: 16px;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 5%;
+    color: black;
+}
+
+.mainContainer {
+    margin-top: 60px;
+    background-color: #E7E9EB;
+}
