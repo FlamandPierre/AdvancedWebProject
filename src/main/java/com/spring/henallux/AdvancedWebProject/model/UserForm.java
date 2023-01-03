@@ -3,26 +3,27 @@ package com.spring.henallux.AdvancedWebProject.model;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.validation.annotation.Validated;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.*;
 import java.util.Date;
 
 @Validated
 public class UserForm {
     @NotEmpty
     @Email
+    @Size(max = 255)
     private String username;
     @NotEmpty
     private String password;
     @NotEmpty
     private String passwordConfirmation;
     @NotEmpty
+    @Size(max = 255)
     private String firstname;
     @NotEmpty
+    @Size(max = 255)
     private String lastname;
     @NotEmpty
+    @Size(max = 255)
     private String address;
     @NotEmpty
     @Pattern(regexp = "^$|([0-9]{9,13})")

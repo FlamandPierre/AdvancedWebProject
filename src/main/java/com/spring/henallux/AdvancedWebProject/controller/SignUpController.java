@@ -36,11 +36,13 @@ public class SignUpController {
                               final BindingResult errors) {
         if (!errors.hasErrors()) {
             if (userDAO.exists(userForm.getUsername())) {
-                //error to implement
+                errors.rejectValue("username", "emailUsed");
+                System.out.println("coucou");
                 return "integrated:signUp";
             }
             if (!userForm.getPasswordConfirmation().equals(userForm.getPassword())) {
-                //error to implement
+                errors.rejectValue("passwordConfirmation", "unmatchedPasswords");
+                System.out.println("coucou");
                return "integrated:signUp";
             }
             User newUser = new User(userForm);
