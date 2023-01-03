@@ -8,6 +8,8 @@
         <link type="text/css" href="<spring:url value='/css/styles.css'/>" rel="Stylesheet">
     </head>
     <body class="mainContainer">
-        THIS IS THE HOME PAGE
+        <c:forEach items="${categories}" var="category">
+            <h1 id="${category.getLabel()}" class="section">${category.getLabel()}</h1>
+        </c:forEach>
     </body>
 </html>

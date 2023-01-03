@@ -11,9 +11,22 @@ public class CategoryEntity {
     @Column(name="label")
     private String label;
 
+    @OneToMany(mappedBy = "category")
+    private Collection<BoardGameEntity> boardGames;
+
     public CategoryEntity() {}
 
-    public void setLabel(String label) { this.label = label; }
+    public void setLabel(String label) {
+        this.label = label;
+    }
+    public void setBoardGames(Collection<BoardGameEntity> boardGames) {
+        this.boardGames = boardGames;
+    }
 
-    public String getLabel() { return label; }
+    public String getLabel() {
+        return label;
+    }
+    public Collection<BoardGameEntity> getBoardGames() {
+        return boardGames;
+    }
 }

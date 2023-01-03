@@ -47,7 +47,7 @@ CREATE TABLE language
 
 CREATE TABLE category
 (
-    label VARCHAR(60) UNIQUE NOT NULL,
+    label VARCHAR(4) UNIQUE NOT NULL,
     PRIMARY KEY (label)
 );
 
@@ -81,23 +81,34 @@ CREATE TABLE order_line(
     FOREIGN KEY (fk_boardGame) REFERENCES board_game (id)
 );
 
-INSERT INTO user(username, password, firstname, lastname, loyalty_points, address, phone_number, birthdate, authorities, account_non_expired, account_non_locked, credentials_non_expired, enabled)VALUES
-('test@test.com', '$2a$10$wWXHc7YKDkvW/BkjHPXf9eRiLVngtCcJA69kQwt455Xalxk3Be9y6','test', 'test', 25, 'rue du test 42 5000 NAMUR', '0032666424242', '2000-01-01', 'ROLE_USER', 1, 1, 1, 1);
+INSERT INTO user(username, password, firstname, lastname, loyalty_points, address, phone_number, birthdate, authorities, account_non_expired, account_non_locked, credentials_non_expired, enabled)
+VALUES ('test@test.com', '$2a$10$wWXHc7YKDkvW/BkjHPXf9eRiLVngtCcJA69kQwt455Xalxk3Be9y6','test', 'test', 25, 'rue du test 42 5000 NAMUR', '0032666424242', '2000-01-01', 'ROLE_USER', 1, 1, 1, 1);
 
-INSERT INTO `order`(date, is_paid, reduction, fk_user)VALUES
-    ('2022-11-29', 1, 0.0, 'test@test.com');
+INSERT INTO `order`(date, is_paid, reduction, fk_user)
+VALUES ('2022-11-29', 1, 0.0, 'test@test.com');
 
-INSERT INTO language(code)VALUES
-('FRA');
+INSERT INTO language(code)
+VALUES ('FRA'),
+       ('ENG');
 
-INSERT INTO category(label)VALUES
-('CONST&GEST');
+INSERT INTO category(label)
+VALUES ('MOYE'),
+       ('ENCH'),
+       ('WARG');
 
-INSERT INTO category_translation(fk_language, fk_category, category_name) VALUES
-('FRA', 'CONST&GEST', 'jeux de construction et de gestion');
+INSERT INTO category_translation(fk_language, fk_category, category_name)
+VALUES ('FRA', 'MOYE', 'Moyen Age'),
+       ('ENG', 'MOYE', 'Middle Ages'),
+       ('FRA', 'ENCH', 'Jeux d''enchères'),
+       ('ENG', 'ENCH', 'Auction games'),
+       ('FRA', 'WARG', 'Wargames'),
+       ('ENG', 'WARG', 'Wargames');
 
-INSERT INTO board_game(name, editor_name, price, description, fk_category)VALUES
-('Carcassonne', 'Filosofia', 35.20, 'Construisez une cité médiévale, et placez-y vos chevaliers dans les plus grandes villes, vos brigands sur les plus grands chemins, vos moines dans les monastères, et vos paysans sur les champs au pied des villes.','CONST&GEST');
+INSERT INTO board_game(name, editor_name, price, description, fk_category)
+VALUES ('Carcassonne', 'Zman Games', 35.20, 'Construisez une cité médiévale, et placez-y vos chevaliers dans les plus grandes villes, vos brigands sur les plus grands chemins, vos moines dans les monastères, et vos paysans sur les champs au pied des villes.','MOYE'),
+       ('Monopoly', 'Hasbro', 25.00, 'Édité pour la première fois en 1935, ce jeu de société incontournable, ayant pour thème central les transactions immobilières, s''est imposé au fil des décennies comme étant le plus gros succès du monde ludique', 'ENCH'),
+       ('Risk', 'Hasbro', 35.00, 'Le jeu de conquête stratégique ! Le monde appartient aux audacieux, l''êtes-vous assez pour gagner ? Déplacez vos régiments, choisissez votre stratégie et que la conquête du monde commence !', 'WARG'),
+       ('Mémoire 44', 'Days of wonder', 59.95, 'Mémoire 44 est un jeu de société destiné à transmettre aux jeunes générations la mémoire des évènements des débarquements de 1944 et de la libération de la France.', 'WARG');
 
-INSERT INTO order_line(quantity, price, fk_order, fk_boardGame)VALUES
-(1, 35.20, 1, 1);
+INSERT INTO order_line(quantity, price, fk_order, fk_boardGame)
+VALUES (1, 35.20, 1, 1);

@@ -5,8 +5,6 @@ import com.spring.henallux.AdvancedWebProject.model.Language;
 
 import javax.persistence.*;
 
-//TODO
-
 /*@Entity
 @Table(name = "translation")
 public class CategoryTranslationEntity {
