@@ -9,7 +9,7 @@
         <h1>Sign up</h1>
         <form:form id="signUp"
                    method="POST"
-                   action="/AdvancedWeb/signUp/send"
+                   action="/Baxydia/signUp/send"
                    modelAttribute="userForm">
             <form:label path="username">Email : </form:label>
             <form:input path="username" type="text"/>

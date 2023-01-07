@@ -10,9 +10,12 @@
     <body>
         <section class="header">
             <div class="headerContent">
-                <a class="headerLeft">Baxydia</a>
-                <img class="headerMiddle" src="<spring:url value="/images/basketlogo.png"/>" alt="BasketImg">
-                <a class="headerRight">Login</a>
+                <a class="headerLeft" href="<spring:url value="/"/>">Baxydia</a>
+                <a href="<spring:url value="/checkout"/>">
+                    <img class="headerMiddle" src="<spring:url value="/images/basketlogo.png"/>" alt="BasketImg">
+                </a>
+                <a class="headerLogin" href="<spring:url value="/login"/>">Login</a>
+                <a class="headerRegister" href="<spring:url value="/signUp"/>">Register</a>
             </div>
         </section>
         <section>
@@ -20,6 +23,7 @@
         </section>
         <section class="footer">
             <p>footer to implement</p>
+            <p>©Baxydia 2023</p>
         </section>
     </body>
 </html>

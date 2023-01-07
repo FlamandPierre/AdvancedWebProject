@@ -2,17 +2,18 @@ package com.spring.henallux.AdvancedWebProject.model;
 
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 
 public class OrderLine {
 
     private Integer id;
     @NotNull
-    @Min(value = 0)
+    @Min(value = 1)
+    @Max(value = 99)
     private Integer quantity;
     private Double price;
     private BoardGame boardGame;
-    private Order order;
 
     public OrderLine() {}
 
@@ -20,11 +21,9 @@ public class OrderLine {
     public void setQuantity(Integer quantity) { this.quantity = quantity; }
     public void setPrice(Double price) { this.price = price; }
     public void setBoardGame(BoardGame boardGame) { this.boardGame = boardGame; }
-    public void setOrder(Order order) { this.order = order; }
 
     public Integer getId() { return id; }
     public Integer getQuantity() { return quantity; }
     public Double getPrice() { return price; }
     public BoardGame getBoardGame() { return boardGame; }
-    public Order getOrder() { return order; }
 }

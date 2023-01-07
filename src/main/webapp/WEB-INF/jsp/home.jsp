@@ -8,8 +8,14 @@
         <link type="text/css" href="<spring:url value='/css/styles.css'/>" rel="Stylesheet">
     </head>
     <body class="mainContainer">
-        <c:forEach items="${categories}" var="category">
-            <h1 id="${category.getLabel()}" class="section">${category.getLabel()}</h1>
-        </c:forEach>
+        <div class="homeIntroduction">
+            <p class="homeFirstPara">En famille ou entre amis, tout le monde aime les jeux de sociétés.</p>
+        </div>
+        <div class="homeCategory">
+            <p class="homeCategoryTitle">Catégories :</p>
+            <c:forEach items="${categories}" var="category">
+                <h1 id="${category.getLabel()}" class="homeSection">${category.getLabel()}</h1>
+            </c:forEach>
+        </div>
     </body>
 </html>

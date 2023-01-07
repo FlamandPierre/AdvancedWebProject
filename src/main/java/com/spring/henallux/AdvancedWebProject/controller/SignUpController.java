@@ -25,7 +25,7 @@ public class SignUpController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String getHome (Model model) {
+    public String getSignUp(Model model) {
         model.addAttribute("userForm", new UserForm());
         return "integrated:signUp";
     }
@@ -37,16 +37,14 @@ public class SignUpController {
         if (!errors.hasErrors()) {
             if (userDAO.exists(userForm.getUsername())) {
                 errors.rejectValue("username", "emailUsed");
-                System.out.println("coucou");
                 return "integrated:signUp";
             }
             if (!userForm.getPasswordConfirmation().equals(userForm.getPassword())) {
                 errors.rejectValue("passwordConfirmation", "unmatchedPasswords");
-                System.out.println("coucou");
                return "integrated:signUp";
             }
-            User newUser = new User(userForm);
-            userDAO.addUser(newUser);
+
+            userDAO.addUser(new User(userForm));
             return "redirect:/login";
         }
         return "integrated:signUp";
