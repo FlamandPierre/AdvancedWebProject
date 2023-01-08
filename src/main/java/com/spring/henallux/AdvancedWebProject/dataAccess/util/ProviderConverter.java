@@ -1,12 +1,16 @@
 package com.spring.henallux.AdvancedWebProject.dataAccess.util;
 
 import com.spring.henallux.AdvancedWebProject.dataAccess.entity.CategoryEntity;
+import com.spring.henallux.AdvancedWebProject.dataAccess.entity.OrderEntity;
 import com.spring.henallux.AdvancedWebProject.dataAccess.entity.UserEntity;
 import com.spring.henallux.AdvancedWebProject.model.Category;
+import com.spring.henallux.AdvancedWebProject.model.Order;
 import com.spring.henallux.AdvancedWebProject.model.User;
 import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
 import org.springframework.stereotype.Component;
+
+import java.sql.Date;
 
 @Component
 public class ProviderConverter {
@@ -31,5 +35,15 @@ public class ProviderConverter {
     //Model -> Entity
     public UserEntity userModelToUserEntity(User user) {
         return mapper.map(user, UserEntity.class);
+    }
+    public OrderEntity orderModelToOrderEntity(Order order) {
+        OrderEntity orderEntity = new OrderEntity();
+
+        orderEntity.setDate((Date) order.getDate());
+        orderEntity.setIsPaid(order.getIsPaid());
+        orderEntity.setReduction(order.getReduction());
+        orderEntity.setEMailUser(order.getUser().getUsername());
+
+        return orderEntity;
     }
 }

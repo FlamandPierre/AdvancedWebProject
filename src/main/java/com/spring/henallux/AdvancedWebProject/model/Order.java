@@ -2,6 +2,7 @@ package com.spring.henallux.AdvancedWebProject.model;
 
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.NotNull;
+import java.text.DecimalFormat;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -37,16 +38,17 @@ public class Order {
     public Double getReduction() { return reduction; }
     public User getUser() { return user; }
     public OrderLine getItem(String name) { return items.get(name); }
-
-
-
     public HashMap<String, OrderLine> getItems() {
         return items;
     }
-
-    public OrderLine getItemd(String name) {
-        return items.get(name);
+    public Double getTotal() {
+        double total = 0;
+        for (OrderLine item : items.values()) {
+            total += item.getPrice();
+        }
+        DecimalFormat decimalFormat = new DecimalFormat("0.00");
+        String totalString = decimalFormat.format(total);
+        totalString = totalString.replace(",",".");
+        return Double.parseDouble((totalString));
     }
-
-
 }
