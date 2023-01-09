@@ -26,7 +26,7 @@ public class OrderLineDAO implements OrderLineDataAccess {
 
     @Override
     public void saveOrderItems(ArrayList<OrderLine> items, String username) {
-        OrderEntity orderEntity = orderRepository.findFirstByUserPseudoOrderByIdDesc(username);
+        OrderEntity orderEntity = orderRepository.findFirstByeMailUserOrderByIdDesc(username);
         for (OrderLine item : items) {
             orderLineRepository.save(providerConverter.orderLineModelToOrderLineEntity(item, orderEntity.getId()));
         }

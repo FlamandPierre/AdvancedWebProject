@@ -1,7 +1,9 @@
 package com.spring.henallux.AdvancedWebProject.controller;
 
 import com.spring.henallux.AdvancedWebProject.dataAccess.dao.OrderDAO;
+import com.spring.henallux.AdvancedWebProject.dataAccess.dao.OrderDataAccess;
 import com.spring.henallux.AdvancedWebProject.dataAccess.dao.OrderLineDAO;
+import com.spring.henallux.AdvancedWebProject.dataAccess.dao.OrderLineDataAccess;
 import com.spring.henallux.AdvancedWebProject.model.Order;
 import com.spring.henallux.AdvancedWebProject.model.OrderLine;
 import com.spring.henallux.AdvancedWebProject.model.User;
@@ -20,8 +22,8 @@ import java.util.ArrayList;
 @RequestMapping(value="/payment")
 @SessionAttributes({"order"})
 public class PaymentController {
-    private OrderDAO orderDAO;
-    private OrderLineDAO orderLineDAO;
+    private OrderDataAccess orderDAO;
+    private OrderLineDataAccess orderLineDAO;
 
     @Autowired
     public PaymentController(OrderDAO orderDAO, OrderLineDAO orderLineDAO) {

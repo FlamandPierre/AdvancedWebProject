@@ -15,8 +15,9 @@ public class OrderDAO implements OrderDataAccess {
     private ProviderConverter providerConverter;
 
     @Autowired
-    public OrderDAO(OrderRepository orderRepository) {
+    public OrderDAO(OrderRepository orderRepository, ProviderConverter providerConverter) {
         this.orderRepository = orderRepository;
+        this.providerConverter = providerConverter;
     }
 
     @Override
@@ -28,7 +29,7 @@ public class OrderDAO implements OrderDataAccess {
     @Transactional
     @Override
     public void updateIsPaid(boolean isPaid, String username) {
-        OrderEntity orderEntity = orderRepository.findFirstByUserPseudoOrderByIdDesc(username);
+        OrderEntity orderEntity = orderRepository.findFirstByeMailUserOrderByIdDesc(username);
         orderEntity.setIsPaid(isPaid);
         orderRepository.save(orderEntity);
     }

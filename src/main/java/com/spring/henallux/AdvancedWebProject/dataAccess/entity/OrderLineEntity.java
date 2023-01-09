@@ -2,6 +2,7 @@ package com.spring.henallux.AdvancedWebProject.dataAccess.entity;
 
 import javax.persistence.*;
 
+@Entity
 @Table(name = "order_line")
 public class OrderLineEntity {
     @Id
