@@ -1,66 +1,57 @@
 package com.spring.henallux.AdvancedWebProject.dataAccess.entity;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Table(name = "order_line")
 public class OrderLineEntity {
+    @Id
+    @Column(name = "quantity")
+    private Integer quantity;
+    @Column(name = "price")
+    private Double price;
+    @Column(name = "fk_order")
+    private Integer idOrder;
+    @Column(name = "fk_boardGame")
+    private Integer idBoardGame;
 
-    @EmbeddedId
-    private OrderLinePk orderLinePk;
-
-    @Column(name = "date")
-    private Date date;
-
-    @Column(name = "is_paid")
-    private Boolean isPaid;
-
-    @Column(name = "reduction")
-    private Integer reduction;
-
-    @JoinColumn(name = "fk_username")
-    @ManyToOne
-    private CategoryEntity username;
+    public OrderLineEntity(Integer quantity, Double price, Integer idOrder, Integer idBoardGame) {
+        setQuantity(quantity);
+        setPrice(price);
+        setIdOrder(idOrder);
+        setIdBoardGame(idBoardGame);
+    }
 
     public OrderLineEntity() {}
 
-    public OrderLinePk getOrderLinePk() {
-        return orderLinePk;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
-    public void setOrderLinePk(OrderLinePk orderLinePk) {
-        this.orderLinePk = orderLinePk;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
-    public Date getDate() {
-        return date;
+    public void setIdOrder(Integer idOrder) {
+        this.idOrder = idOrder;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setIdBoardGame(Integer idBoardGame) {
+        this.idBoardGame = idBoardGame;
     }
 
-    public Boolean getIsPaid() {
-        return isPaid;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setIsPaid(Boolean paid) {
-        isPaid = paid;
+    public Double getPrice() {
+        return price;
     }
 
-    public Integer getReduction() {
-        return reduction;
+    public Integer getIdOrder() {
+        return idOrder;
     }
 
-    public void setReduction(Integer reduction) {
-        this.reduction = reduction;
-    }
-
-    public CategoryEntity getUsername() {
-        return username;
-    }
-
-    public void setUsername(CategoryEntity username) {
-        this.username = username;
+    public Integer getIdBoardGame() {
+        return idBoardGame;
     }
 }

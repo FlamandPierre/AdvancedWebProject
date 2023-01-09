@@ -2,9 +2,11 @@ package com.spring.henallux.AdvancedWebProject.dataAccess.util;
 
 import com.spring.henallux.AdvancedWebProject.dataAccess.entity.CategoryEntity;
 import com.spring.henallux.AdvancedWebProject.dataAccess.entity.OrderEntity;
+import com.spring.henallux.AdvancedWebProject.dataAccess.entity.OrderLineEntity;
 import com.spring.henallux.AdvancedWebProject.dataAccess.entity.UserEntity;
 import com.spring.henallux.AdvancedWebProject.model.Category;
 import com.spring.henallux.AdvancedWebProject.model.Order;
+import com.spring.henallux.AdvancedWebProject.model.OrderLine;
 import com.spring.henallux.AdvancedWebProject.model.User;
 import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
@@ -45,5 +47,16 @@ public class ProviderConverter {
         orderEntity.setEMailUser(order.getUser().getUsername());
 
         return orderEntity;
+    }
+
+    public OrderLineEntity orderLineModelToOrderLineEntity(OrderLine orderLine, Integer orderId) {
+        OrderLineEntity orderLineEntity = new OrderLineEntity();
+
+        orderLineEntity.setPrice(orderLine.getPrice());
+        orderLineEntity.setQuantity(orderLine.getQuantity());
+        orderLineEntity.setIdBoardGame(orderLine.getBoardGame().getId());
+        orderLineEntity.setIdOrder(orderId);
+
+        return orderLineEntity;
     }
 }

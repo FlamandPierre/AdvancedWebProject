@@ -4,4 +4,5 @@ import com.spring.henallux.AdvancedWebProject.model.Order;
 
 public interface OrderDataAccess {
     public void saveOrder(Order order);
+    public void updateIsPaid(boolean isPaid, String username);
 }
