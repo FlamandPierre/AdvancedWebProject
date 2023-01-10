@@ -22,5 +22,4 @@ public class Category {
     public Collection<BoardGame> getBoardGames() {
         return boardGames;
     }
-
 }

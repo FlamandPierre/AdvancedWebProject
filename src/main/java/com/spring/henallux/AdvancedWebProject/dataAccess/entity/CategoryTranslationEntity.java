@@ -1,28 +1,32 @@
 package com.spring.henallux.AdvancedWebProject.dataAccess.entity;
 
+import com.spring.henallux.AdvancedWebProject.dataAccess.util.CategoryTranslationKey;
 import com.spring.henallux.AdvancedWebProject.model.Category;
 import com.spring.henallux.AdvancedWebProject.model.Language;
 
 import javax.persistence.*;
 
-/*@Entity
-@Table(name = "translation")
+@Entity
+@IdClass(CategoryTranslationKey.class)
+@Table(name = "category_translation")
 public class CategoryTranslationEntity {
+    @Column(name = "category_name")
+    private String categoryName;
+    @Id
+    @Column(name = "fk_language")
+    private String languageCode;
+    @Id
+    @Column(name = "fk_category")
+    private String categoryLabel;
 
-    @Column(name = "language")
-    private Language language;
-    
-    private Category category;
-    private String name;
+    public CategoryTranslationEntity() {}
 
-    public Translation() {}
+    public void setLanguageCode(String languageCode) { this.languageCode = languageCode; }
+    public void setCategoryLabel(String categoryLabel) { this.categoryLabel = categoryLabel; }
+    public void setCategoryName(String categoryName) { this.categoryName = categoryName; }
 
-    public void setLanguage(Language language) { this.language = language; }
-    public void setCategory(Category category) { this.category = category; }
-    public void setName(String name) { this.name = name; }
+    public String getLanguageCode() { return languageCode; }
+    public String getCategoryLabel() { return categoryLabel; }
+    public String getCategoryName() { return categoryName; }
 
-    public Language getLanguage() { return language; }
-    public Category getCategory() { return category; }
-    public String getName() { return name; }
-
-}*/
+}

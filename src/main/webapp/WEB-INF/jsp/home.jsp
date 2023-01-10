@@ -18,7 +18,11 @@
                    class="homeItemButtonLink"
                    href="<spring:url value="/category/${category.getLabel()}"/>">
                     <div class="homeItemButton">
-                        <h1>${category.getLabel()}</h1>
+                        <c:forEach items="${translations}" var="translation">
+                            <c:if test="${translation.getCategoryLabel() == category.getLabel()}">
+                                <h1>${translation.getCategoryName()}</h1>
+                            </c:if>
+                        </c:forEach>
                     </div>
                 </a>
             </c:forEach>

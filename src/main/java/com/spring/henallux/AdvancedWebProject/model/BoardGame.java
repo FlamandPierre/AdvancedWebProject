@@ -7,7 +7,7 @@ public class BoardGame {
     private String editorName;
     private Double price;
     private String description;
-    private Category category;
+    private String categoryLabel;
 
     public BoardGame() {}
 
@@ -16,13 +16,13 @@ public class BoardGame {
     public void setEditorName(String editorName) { this.editorName = editorName; }
     public void setPrice(Double price) { this.price = price; }
     public void setDescription(String description) { this.description = description; }
-    public void setCategory(Category category) { this.category = category; }
+    public void setCategoryLabel(String categoryLabel) { this.categoryLabel = categoryLabel; }
 
     public Integer getId() { return id; }
     public String getName() { return name; }
     public String getEditorName() { return editorName; }
     public Double getPrice() { return price; }
     public String getDescription() { return description; }
-    public Category getCategory() { return category; }
+    public String getCategoryLabel() { return categoryLabel; }
 
 }

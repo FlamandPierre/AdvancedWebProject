@@ -28,6 +28,10 @@ public class ProviderConverter {
         return mapper.map(categoryEntity, Category.class);
     }
 
+    public CategoryTranslation categoryTranslationEntityToCategoryTranslation(CategoryTranslationEntity categoryTranslationEntity) {
+        return mapper.map(categoryTranslationEntity, CategoryTranslation.class);
+    }
+
     //Model -> Entity
     public UserEntity userModelToUserEntity(User user) {
         return mapper.map(user, UserEntity.class);

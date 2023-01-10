@@ -27,7 +27,7 @@ public class BoardGameEntity {
     public void setEditorName(String editorName) { this.editorName = editorName; }
     public void setPrice(Double price) { this.price = price; }
     public void setDescription(String description) { this.description = description; }
-    public void setCategory(CategoryEntity category) { this.category = category; }
+    public void setCategoryLabel(CategoryEntity category) { this.category = category; }
 
     public Integer getId() { return id; }
     public String getName() { return name; }

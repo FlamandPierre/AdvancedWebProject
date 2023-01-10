@@ -15,6 +15,7 @@ public class CategoryEntity {
     private Collection<BoardGameEntity> boardGames;
 
 
+
     public CategoryEntity() {}
 
     public void setLabel(String label) {
