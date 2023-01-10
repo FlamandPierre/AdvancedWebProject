@@ -290,7 +290,12 @@ table tr:nth-child(odd) {
 
 .paymentPayButton {
     text-align: center;
-    padding-top: 50px;
+    padding-top: 30px;
+}
+
+.paymentPrice {
+    text-align: center;
+    padding-top: 30px;
 }
 
 #AboutUsText {

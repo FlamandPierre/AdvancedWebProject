@@ -9,12 +9,13 @@
   <link type="text/css" href="<spring:url value='/css/styles.css'/>" rel="Stylesheet">
 </head>
   <body class="mainContainer">
+    <p class="paymentPrice">Prix à payer : ${total} €</p>
     <div class="paymentPayButton">
       <form method="post" action="https://www.sandbox.paypal.com/cgi-bin/webscr" >
         <input type="hidden" name="business" value="sb-bxsaa1146424@business.example.com" />
         <input type="hidden" name="cert_id" value="AevWULr5xlcSLo4qZ3ztMqkbZQqkPHF0FAoo0aSmbSesIQnFyDCDVZgSunroygQ5_bXlauESAInzRmkq" />
         <input type="hidden" name="cmd" value="_xclick" />
-        <input type="hidden" name="amount" value="${order.getTotal()}" />
+        <input type="hidden" name="amount" value="${total}" />
         <input type="hidden" name="item_name" value="Board games" />
         <input type="hidden" name="currency_code" value="EUR" />
         <input type="hidden" name="lc" value="fr_FR" />

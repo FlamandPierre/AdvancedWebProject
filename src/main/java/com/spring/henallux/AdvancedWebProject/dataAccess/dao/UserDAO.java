@@ -44,4 +44,12 @@ public class UserDAO implements UserDataAccess{
     public Boolean exists(String username) {
         return userRepository.existsById(username);
     }
+
+    @Transactional
+    @Override
+    public void updatePoints(String username, Integer points) {
+        UserEntity userEntity = userRepository.findByUsername(username);
+        userEntity.setLoyaltyPoints(points);
+        userRepository.save(userEntity);
+    }
 }
