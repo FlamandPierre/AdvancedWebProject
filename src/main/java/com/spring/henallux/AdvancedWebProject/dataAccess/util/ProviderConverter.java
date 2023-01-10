@@ -1,13 +1,7 @@
 package com.spring.henallux.AdvancedWebProject.dataAccess.util;
 
-import com.spring.henallux.AdvancedWebProject.dataAccess.entity.CategoryEntity;
-import com.spring.henallux.AdvancedWebProject.dataAccess.entity.OrderEntity;
-import com.spring.henallux.AdvancedWebProject.dataAccess.entity.OrderLineEntity;
-import com.spring.henallux.AdvancedWebProject.dataAccess.entity.UserEntity;
-import com.spring.henallux.AdvancedWebProject.model.Category;
-import com.spring.henallux.AdvancedWebProject.model.Order;
-import com.spring.henallux.AdvancedWebProject.model.OrderLine;
-import com.spring.henallux.AdvancedWebProject.model.User;
+import com.spring.henallux.AdvancedWebProject.dataAccess.entity.*;
+import com.spring.henallux.AdvancedWebProject.model.*;
 import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
 import org.springframework.stereotype.Component;
@@ -58,5 +52,18 @@ public class ProviderConverter {
         orderLineEntity.setIdOrder(orderId);
 
         return orderLineEntity;
+    }
+
+    public Item boardGameEntityToItemModel(BoardGameEntity boardGameEntity) {
+        Item item = new Item();
+
+        item.setId(boardGameEntity.getId());
+        item.setName(boardGameEntity.getName());
+        item.setDescription(boardGameEntity.getDescription());
+        item.setUnitPrice(boardGameEntity.getPrice());
+        item.setCategoryId(boardGameEntity.getCategory());
+        item.setReduction(new Reduction());
+
+        return item;
     }
 }

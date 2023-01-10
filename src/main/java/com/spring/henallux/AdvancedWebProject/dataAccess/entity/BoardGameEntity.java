@@ -5,7 +5,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "board_game")
 public class BoardGameEntity {
-
     @Id
     @Column(name = "id")
     private Integer id;
@@ -17,9 +16,8 @@ public class BoardGameEntity {
     private Double price;
     @Column(name = "description")
     private String description;
-    @JoinColumn(name = "fk_category")
-    @ManyToOne
-    private CategoryEntity category;
+    @Column(name = "fk_category")
+    private String category;
 
     public BoardGameEntity() {}
 
@@ -28,12 +26,12 @@ public class BoardGameEntity {
     public void setEditorName(String editorName) { this.editorName = editorName; }
     public void setPrice(Double price) { this.price = price; }
     public void setDescription(String description) { this.description = description; }
-    public void setCategory(CategoryEntity category) { this.category = category; }
+    public void setCategory(String category) { this.category = category; }
 
     public Integer getId() { return id; }
     public String getName() { return name; }
     public String getEditorName() { return editorName; }
     public Double getPrice() { return price; }
     public String getDescription() { return description; }
-    public CategoryEntity getCategory() { return category; }
+    public String getCategory() { return category; }
 }
