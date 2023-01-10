@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 @Controller
-@RequestMapping(value = "/")
+@RequestMapping(value = "/home")
 @SessionAttributes({HomeController.ORDER})
 public class HomeController {
     protected static final String ORDER = "order";

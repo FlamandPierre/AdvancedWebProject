@@ -16,7 +16,7 @@
     <body>
         <section class="header">
             <div class="headerContent">
-                <a class="headerLeft" href="<spring:url value="/"/>">Baxydia</a>
+                <a class="headerLeft" href="<spring:url value="/home"/>">Baxydia</a>
                 <a href="${localeFr}">
                     <img class="headerBtn" alt="fr" src='<spring:url value="/images/localeFr.png" />'>
                 </a>

@@ -20,5 +20,13 @@
                 </div>
             </c:forEach>
         </div>
+        <a class="homeItemButtonLink" href="<spring:url value="/home"/>">
+            <div class="homeItemButton">
+                <p class="homeItemButtonTitle"><spring:message code="categories"/></p>
+            </div>
+        </a>
+        <div>
+
+        </div>
     </body>
 </html>

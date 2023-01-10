@@ -12,7 +12,7 @@
             <p class="homeFirstPara"><spring:message code="textHome" /></p>
         </div>
         <div class="homeCategory">
-            <p class="homeCategoryTitle"><spring:message code="catergory" /> :</p>
+            <p class="homeCategoryTitle"><spring:message code="categories" /> :</p>
             <c:forEach items="${categories}" var="category">
                 <a id="${category.getLabel()}"
                    class="homeItemButtonLink"
