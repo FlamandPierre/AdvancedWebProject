@@ -3,10 +3,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login</title>
+        <title><spring:message code="login" /></title>
     </head>
     <body class="mainContainer">
-        <h1>Connexion</h1>
+        <h1><spring:message code="login" /></h1>
             <form:form
             method="post"
             action=""
@@ -18,7 +18,7 @@
                     <form:input path="password" placeholder="password" type="password"/>
                     <form:errors path="password"/>
                 <br>
-                <form:button>Login</form:button>
+                <form:button><spring:message code="login" /></form:button>
             </form:form>
     </body>
 </html>

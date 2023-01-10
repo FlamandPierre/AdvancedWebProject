@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Baxydia - Paiement</title>
+  <title>Baxydia - <spring:message code="payment" /></title>
   <link type="text/css" href="<spring:url value='/css/styles.css'/>" rel="Stylesheet">
 </head>
   <body class="mainContainer">

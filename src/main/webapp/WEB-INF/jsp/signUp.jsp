@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sign up</title>
+        <title><spring:message code="signUp" /></title>
     </head>
     <body class="mainContainer">
         <h1>Sign up</h1>
