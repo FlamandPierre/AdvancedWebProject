@@ -34,7 +34,6 @@
             <tiles:insertAttribute name="main-content"/>
         </section>
         <section class="footer">
-            <p>footer to implement</p>
             <p>©Baxydia 2023</p>
         </section>
     </body>

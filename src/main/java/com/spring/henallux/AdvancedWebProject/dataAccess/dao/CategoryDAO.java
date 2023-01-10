@@ -35,4 +35,10 @@ public class CategoryDAO implements CategoryDataAccess {
         }
         return categories;
     }
+
+    @Override
+    public Category getCategory(String label) {
+        CategoryEntity categoryEntity = categoryRepository.getById(label);
+        return providerConverter.categoryEntityToCategoryModel(categoryEntity);
+    }
 }

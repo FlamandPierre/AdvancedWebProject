@@ -33,6 +33,7 @@ public class ProviderConverter {
     public UserEntity userModelToUserEntity(User user) {
         return mapper.map(user, UserEntity.class);
     }
+
     public OrderEntity orderModelToOrderEntity(Order order) {
         OrderEntity orderEntity = new OrderEntity();
 
@@ -70,7 +71,7 @@ public class ProviderConverter {
         item.setName(boardGameEntity.getName());
         item.setDescription(boardGameEntity.getDescription());
         item.setUnitPrice(boardGameEntity.getPrice());
-        item.setCategoryId(boardGameEntity.getCategory());
+        item.setCategoryId(boardGameEntity.getCategory().getLabel());
         item.setReduction(new Reduction());
 
         return item;

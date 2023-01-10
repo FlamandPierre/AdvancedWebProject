@@ -7,5 +7,5 @@ import java.util.ArrayList;
 public interface CategoryDataAccess {
 
     ArrayList<Category> getAllCategories();
-
+    Category getCategory(String label);
 }

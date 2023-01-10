@@ -14,20 +14,13 @@
         <div class="homeCategory">
             <p class="homeCategoryTitle">Catégories :</p>
             <c:forEach items="${categories}" var="category">
-                <h1 id="${category.getLabel()}" class="homeSection">${category.getLabel()}</h1>
-            </c:forEach>
-        </div>
-        <div class="homeBoardGames">
-            <c:forEach items="${items}" var="item">
-                <div class="homeItemContainer">
-                    <p class="homeItemName">Nom : ${item.name}</p>
-                    <p class="homeItemPrice">Prix : ${item.unitPrice} €</p>
-                    <a class="homeItemButtonLink" href="<spring:url value="/item?name=${item.name}"/>">
-                        <div class="homeItemButton">
-                            <p class="homeItemButtonTitle">Détails</p>
-                        </div>
-                    </a>
-                </div>
+                <a id="${category.getLabel()}"
+                   class="homeItemButtonLink"
+                   href="<spring:url value="/category/${category.getLabel()}"/>">
+                    <div class="homeItemButton">
+                        <h1>${category.getLabel()}</h1>
+                    </div>
+                </a>
             </c:forEach>
         </div>
     </body>

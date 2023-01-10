@@ -16,8 +16,9 @@ public class BoardGameEntity {
     private Double price;
     @Column(name = "description")
     private String description;
-    @Column(name = "fk_category")
-    private String category;
+    @JoinColumn(name = "fk_category", referencedColumnName = "label")
+    @ManyToOne
+    private CategoryEntity category;
 
     public BoardGameEntity() {}
 
@@ -26,12 +27,12 @@ public class BoardGameEntity {
     public void setEditorName(String editorName) { this.editorName = editorName; }
     public void setPrice(Double price) { this.price = price; }
     public void setDescription(String description) { this.description = description; }
-    public void setCategory(String category) { this.category = category; }
+    public void setCategory(CategoryEntity category) { this.category = category; }
 
     public Integer getId() { return id; }
     public String getName() { return name; }
     public String getEditorName() { return editorName; }
     public Double getPrice() { return price; }
     public String getDescription() { return description; }
-    public String getCategory() { return category; }
+    public CategoryEntity getCategory() { return category; }
 }
