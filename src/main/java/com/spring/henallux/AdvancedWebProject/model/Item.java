@@ -20,8 +20,6 @@ public class Item {
     private String categoryId;
     private Reduction reduction;
 
-    public Item() {}
-
     public Item(Integer id, String name, String description, Double unitPrice, String categoryId) {
         setId(id);
         setName(name);
@@ -30,6 +28,8 @@ public class Item {
         setCategoryId(categoryId);
         setReduction(null);
     }
+
+    public Item() {}
 
     public Double getPriceReduc() {
         if (reduction != null) {

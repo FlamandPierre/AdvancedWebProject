@@ -4,6 +4,7 @@ import com.spring.henallux.AdvancedWebProject.dataAccess.dao.OrderDAO;
 import com.spring.henallux.AdvancedWebProject.dataAccess.dao.OrderDataAccess;
 import com.spring.henallux.AdvancedWebProject.dataAccess.dao.OrderLineDAO;
 import com.spring.henallux.AdvancedWebProject.dataAccess.dao.OrderLineDataAccess;
+import com.spring.henallux.AdvancedWebProject.model.Cart;
 import com.spring.henallux.AdvancedWebProject.model.Order;
 import com.spring.henallux.AdvancedWebProject.model.OrderLine;
 import com.spring.henallux.AdvancedWebProject.model.User;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 @Controller
 @RequestMapping(value="/payment")
@@ -32,32 +34,33 @@ public class PaymentController {
     }
 
     @RequestMapping(method=RequestMethod.GET)
-    public String payment(Model model, @ModelAttribute("cart") Order order, Authentication authentication) {
+    public String payment(Model model, @ModelAttribute("order") Cart cart, Authentication authentication) {
         User user = (User)authentication.getPrincipal();
 
         Order newOrder = new Order();
-        ArrayList<OrderLine> items = new ArrayList<>(order.getItems().values());
+        newOrder.setDate(new Date());
+        ArrayList<OrderLine> items = new ArrayList<>(cart.getItems().values());
         newOrder.setUser(user);
         orderDAO.saveOrder(newOrder);
         orderLineDAO.saveOrderItems(items, user.getUsername());
 
-        model.addAttribute(order);
+        model.addAttribute(cart);
         return "integrated:payment";
     }
 
     @RequestMapping(value="/success", method=RequestMethod.GET)
-    public String success(Model model, @ModelAttribute("order") Order order, Authentication authentication) {
+    public String success(Model model, @ModelAttribute("order") Cart cart, Authentication authentication) {
         User user = (User)authentication.getPrincipal();
         orderDAO.updateIsPaid(true, user.getUsername());
-        order.getItems().clear();
+        cart.getItems().clear();
         model.addAttribute("successMessage", "Votre paiement a bien été pris en compte.");
         return "integrated:checkout";
     }
 
     @RequestMapping(value="/cancelled", method=RequestMethod.GET)
-    public String cancelled(Model model, @ModelAttribute("order") Order order) {
+    public String cancelled(Model model, @ModelAttribute("order") Cart cart) {
         model.addAttribute("cancelMessage", "Votre paiement a été annulé !");
-        model.addAttribute(order);
+        model.addAttribute(cart);
         model.addAttribute("orderLine", new OrderLine());
         return "integrated:checkout";
     }

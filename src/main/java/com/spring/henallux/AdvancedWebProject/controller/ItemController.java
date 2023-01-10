@@ -2,6 +2,7 @@ package com.spring.henallux.AdvancedWebProject.controller;
 
 import com.spring.henallux.AdvancedWebProject.dataAccess.dao.ItemDAO;
 import com.spring.henallux.AdvancedWebProject.dataAccess.dao.ItemDataAccess;
+import com.spring.henallux.AdvancedWebProject.model.Cart;
 import com.spring.henallux.AdvancedWebProject.model.Item;
 import com.spring.henallux.AdvancedWebProject.model.Order;
 import com.spring.henallux.AdvancedWebProject.model.OrderLine;
@@ -34,13 +35,12 @@ public class ItemController {
         return "integrated:item";
     }
 
-    @RequestMapping(value = "/addItem")
-    public String getData(Model model, @ModelAttribute("order") Order order, @Valid @ModelAttribute(value = "newItem") OrderLine orderLine, final BindingResult errors) {
+    @RequestMapping(value = "/addItem", method = RequestMethod.POST)
+    public String addData(Model model, @ModelAttribute("order") Cart cart, @Valid @ModelAttribute(value = "newItem") OrderLine item, final BindingResult errors) {
         if (!errors.hasErrors()) {
-            order.setItems(orderLine);
+            cart.addItems(item);
         }
-
-        model.addAttribute(item);
+        model.addAttribute(this.item);
         return "integrated:item";
     }
 }

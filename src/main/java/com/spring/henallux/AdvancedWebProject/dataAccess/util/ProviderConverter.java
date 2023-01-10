@@ -7,6 +7,7 @@ import org.dozer.Mapper;
 import org.springframework.stereotype.Component;
 
 import java.sql.Date;
+import java.util.Calendar;
 
 @Component
 public class ProviderConverter {
@@ -35,7 +36,15 @@ public class ProviderConverter {
     public OrderEntity orderModelToOrderEntity(Order order) {
         OrderEntity orderEntity = new OrderEntity();
 
-        orderEntity.setDate((Date) order.getDate());
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(order.getDate());
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int month = calendar.get(Calendar.MONTH);
+        int year = calendar.get(Calendar.YEAR);
+
+        String test = year + "-" + month + 1 + "-" + day;
+
+        orderEntity.setDate(Date.valueOf(test));
         orderEntity.setIsPaid(order.getIsPaid());
         orderEntity.setReduction(order.getReduction());
         orderEntity.setEMailUser(order.getUser().getUsername());
@@ -48,7 +57,7 @@ public class ProviderConverter {
 
         orderLineEntity.setPrice(orderLine.getPrice());
         orderLineEntity.setQuantity(orderLine.getQuantity());
-        orderLineEntity.setIdBoardGame(orderLine.getBoardGame().getId());
+        orderLineEntity.setIdBoardGame(orderLine.getItem().getId());
         orderLineEntity.setIdOrder(orderId);
 
         return orderLineEntity;

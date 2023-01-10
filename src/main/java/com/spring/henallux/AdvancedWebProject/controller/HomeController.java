@@ -4,6 +4,7 @@ import com.spring.henallux.AdvancedWebProject.dataAccess.dao.CategoryDAO;
 import com.spring.henallux.AdvancedWebProject.dataAccess.dao.CategoryDataAccess;
 import com.spring.henallux.AdvancedWebProject.dataAccess.dao.ItemDAO;
 import com.spring.henallux.AdvancedWebProject.dataAccess.dao.ItemDataAccess;
+import com.spring.henallux.AdvancedWebProject.model.Cart;
 import com.spring.henallux.AdvancedWebProject.model.Item;
 import com.spring.henallux.AdvancedWebProject.model.Order;
 import org.aspectj.weaver.ast.Or;
@@ -29,10 +30,8 @@ public class HomeController {
     private ArrayList<Item> items;
 
     @ModelAttribute(ORDER)
-    public Order order() {
-        Order order = new Order();
-        order.setDate(new Date());
-        return order;
+    public Cart order() {
+        return new Cart();
     }
 
     @Autowired
@@ -42,7 +41,7 @@ public class HomeController {
     }
 
     @RequestMapping (method = RequestMethod.GET)
-    public String getHome (Model model, @ModelAttribute(value = "order") Order order) {
+    public String getHome (Model model, @ModelAttribute(value = "order") Cart cart) {
         items = itemDAO.findAll();
 
         model.addAttribute("categories", categoryDAO.getAllCategories());
