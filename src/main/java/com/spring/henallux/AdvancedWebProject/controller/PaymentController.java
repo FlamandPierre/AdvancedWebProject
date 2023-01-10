@@ -44,7 +44,7 @@ public class PaymentController {
 
         Double total = cart.getTotalReduction((double)user.getLoyaltyPoints());
         if (total < 0.00) {
-            total = -0.00;
+            total = 0.00;
         }
 
         orderDAO.saveOrder(newOrder);
