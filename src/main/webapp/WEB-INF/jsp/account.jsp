@@ -4,7 +4,7 @@
 
 <html>
 <head>
-    <title>Compte</title>
+    <title><spring:message code="account" /></title>
 </head>
 <body class="mainContainer">
 <div class="customerData">
@@ -16,7 +16,7 @@
 </div>
 
 <div>
-    <p><spring:message code="loyalityPoints" /> ${currentUser.loyaltyPoints} points</p>
+    <p><spring:message code="loyalityPoints" /> ${currentUser.loyaltyPoints} <spring:message code="points" /></p>
 </div>
 
 </body>

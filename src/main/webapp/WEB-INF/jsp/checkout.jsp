@@ -5,24 +5,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Baxydia - Panier</title>
+        <title>Baxydia - <spring:message code="cart" /></title>
         <link type="text/css" href="<spring:url value='/css/styles.css'/>" rel="Stylesheet">
     </head>
     <body class="mainContainer">
         <div class="checkoutIntroduction">
-            <p class="checkoutTitle">Panier</p>
+            <p class="checkoutTitle"><spring:message code="cart" /></p>
         </div>
         <p class="checkoutSuccessMessage">${successMessage}</p>
         <p class="checkoutCancelMessage">${cancelMessage}</p>
         <div class="checkoutBasket">
-            <p class="checkoutBasketTitle">Votre liste d'article(s) : </p>
+            <p class="checkoutBasketTitle"><spring:message code="textCart" /></p>
             <table class="checkoutTable">
                 <tr>
-                    <th>Nom</th>
-                    <th>Prix unitaire</th>
-                    <th>Quantité</th>
-                    <th>Prix</th>
-                    <th>Supprimer</th>
+                    <th><spring:message code="name" /></th>
+                    <th><spring:message code="unitPrice" /></th>
+                    <th><spring:message code="quantity" /></th>
+                    <th><spring:message code="price" /></th>
+                    <th><spring:message code="delete" /></th>
                 </tr>
                 <c:forEach items="${cart.items.values()}" var="item">
                     <tr>
@@ -35,11 +35,11 @@
                             </form:form>
                         </td>
                         <td>${item.getTotal()} €</td>
-                        <td><a href="<spring:url value="/checkout/delete/${item.item.name}"/>">Supprimer</a></td>
+                        <td><a href="<spring:url value="/checkout/delete/${item.item.name}"/>"><spring:message code="delete" /></a></td>
                     </tr>
                 </c:forEach>
                 <tr>
-                    <td>Total</td>
+                    <td><spring:message code="total" /></td>
                     <td></td>
                     <td></td>
                     <td>${cart.getTotal()} €</td>
@@ -50,13 +50,13 @@
                 <c:when test="${!cart.getItems().isEmpty()}">
                     <a href="<spring:url value="/payment"/>" class="checkoutLink">
                         <div class="checkoutPurchase">
-                            <p class="checkoutPurchasePara">Procéder au paiement</p>
+                            <p class="checkoutPurchasePara"><spring:message code="payButton" /></p>
                         </div>
                     </a>
                 </c:when>
                 <c:otherwise>
                     <div class="checkoutPurchase checkoutPurchaseNotActive">
-                        <p class="checkoutPurchasePara">Panier vide</p>
+                        <p class="checkoutPurchasePara"><spring:message code="emptyCart" /></p>
                     </div>
                 </c:otherwise>
             </c:choose>
