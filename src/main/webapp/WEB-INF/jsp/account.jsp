@@ -8,15 +8,15 @@
 </head>
 <body class="mainContainer">
 <div class="customerData">
-    <p>Pseudo: ${currentUser.username}</p>
-    <p>Nom : ${currentUser.firstname}</p>
-    <p>Prénom : ${currentUser.lastname}</p>
-    <p>Adresse : ${currentUser.address}</p>
-    <p>Numéro de téléphone : ${currentUser.phoneNumber}</p>
+    <p><spring:message code="pseudo" /> : ${currentUser.username}</p>
+    <p><spring:message code="firstname" /> : ${currentUser.firstname}</p>
+    <p><spring:message code="lastname" /> : ${currentUser.lastname}</p>
+    <p><spring:message code="address" /> : ${currentUser.address}</p>
+    <p><spring:message code="phoneNumber" /> : ${currentUser.phoneNumber}</p>
 </div>
 
 <div>
-    <p>Vous avez : ${currentUser.loyaltyPoints} points</p>
+    <p><spring:message code="loyalityPoints" /> ${currentUser.loyaltyPoints} points</p>
 </div>
 
 </body>

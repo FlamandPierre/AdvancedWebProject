@@ -17,16 +17,22 @@
         <section class="header">
             <div class="headerContent">
                 <a class="headerLeft" href="<spring:url value="/"/>">Baxydia</a>
+                <a href="${localeFr}">
+                    <img class="headerBtn" alt="fr" src='<spring:url value="/images/localeFr.png" />'>
+                </a>
+                <a href="${localeEn}">
+                    <img class="headerBtn" alt="fr" src='<spring:url value="/images/localeEn.png" />'>
+                </a>
                 <a href="<spring:url value="/checkout"/>">
                     <img class="headerMiddle" src="<spring:url value="/images/basketlogo.png"/>" alt="BasketImg">
                 </a>
                 <sec:authorize access="!isAuthenticated()">
-                    <a class="headerLogin" href="<spring:url value="/login"/>">Login</a>
-                    <a class="headerRegister" href="<spring:url value="/signUp"/>">Register</a>
+                    <a class="headerLogin" href="<spring:url value="/login"/>"><spring:message code="login" /></a>
+                    <a class="headerRegister" href="<spring:url value="/signUp"/>"><spring:message code="signUp" /></a>
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
-                    <a class="headerLogin" href="<spring:url value="/account"/>">Account</a>
-                    <a class="headerLogin" href="<spring:url value="/logout"/>">Log out</a>
+                    <a class="headerLogin" href="<spring:url value="/account"/>"><spring:message code="account" /></a>
+                    <a class="headerLogin" href="<spring:url value="/logout"/>"><spring:message code="logout" /></a>
                 </sec:authorize>
             </div>
         </section>

@@ -33,6 +33,12 @@
     margin-top: -10px;
     margin-left: 75%;
 }
+
+.headerBtn{
+    width: 20px;
+    height: 20px;
+}
+
 .headerLogin {
     float: right;
     margin-right: 25px;

@@ -9,10 +9,10 @@
     </head>
     <body class="mainContainer">
         <div class="homeIntroduction">
-            <p class="homeFirstPara">En famille ou entre amis, tout le monde aime les jeux de sociétés.</p>
+            <p class="homeFirstPara"><spring:message code="textHome" /></p>
         </div>
         <div class="homeCategory">
-            <p class="homeCategoryTitle">Catégories :</p>
+            <p class="homeCategoryTitle"><spring:message code="catergory" /> :</p>
             <c:forEach items="${categories}" var="category">
                 <a id="${category.getLabel()}"
                    class="homeItemButtonLink"
