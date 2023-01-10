@@ -180,6 +180,18 @@
     width: 50px;
 }
 
+.checkoutCancelMessage {
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}
+
+.checkoutSuccessMessage {
+    text-align: center;
+    font-weight: bold;
+    color: green;
+}
+
 table {
     border-collapse: collapse;
     font-family: Tahoma, Geneva, sans-serif;
@@ -274,4 +286,9 @@ table tr:nth-child(odd) {
 .itemFormSubmit {
     margin-top: 20px;
     background-color: lightskyblue;
+}
+
+.paymentPayButton {
+    text-align: center;
+    padding-top: 50px;
 }

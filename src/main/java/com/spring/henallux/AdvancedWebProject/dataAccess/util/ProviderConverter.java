@@ -11,7 +11,6 @@ import java.util.Calendar;
 
 @Component
 public class ProviderConverter {
-
     private Mapper mapper = new DozerBeanMapper();
 
     //Entity -> Model
@@ -56,10 +55,10 @@ public class ProviderConverter {
     public OrderLineEntity orderLineToOrderLineEntity(OrderLine orderLine, Integer orderId) {
         OrderLineEntity orderLineEntity = new OrderLineEntity();
 
-        orderLineEntity.setPrice(orderLine.getPrice());
         orderLineEntity.setQuantity(orderLine.getQuantity());
-        orderLineEntity.setIdBoardGame(orderLine.getItem().getId());
-        orderLineEntity.setIdOrder(orderId);
+        orderLineEntity.setPrice(orderLine.getTotal());
+        orderLineEntity.setIdOrder(orderLine.getCompositeKey().getIdOrder());
+        orderLineEntity.setIdBoardGame(orderLine.getCompositeKey().getIdBoardGame());
 
         return orderLineEntity;
     }

@@ -12,6 +12,8 @@
         <div class="checkoutIntroduction">
             <p class="checkoutTitle">Panier</p>
         </div>
+        <p class="checkoutSuccessMessage">${successMessage}</p>
+        <p class="checkoutCancelMessage">${cancelMessage}</p>
         <div class="checkoutBasket">
             <p class="checkoutBasketTitle">Votre liste d'article(s) : </p>
             <table class="checkoutTable">

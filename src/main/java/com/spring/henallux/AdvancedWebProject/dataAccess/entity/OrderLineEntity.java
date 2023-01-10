@@ -1,18 +1,22 @@
 package com.spring.henallux.AdvancedWebProject.dataAccess.entity;
 
+import com.spring.henallux.AdvancedWebProject.dataAccess.util.MyCompositeKey;
+
 import javax.persistence.*;
 
 @Entity
+@IdClass(MyCompositeKey.class)
 @Table(name = "order_line")
 public class OrderLineEntity {
-    @Id
     @Column(name = "quantity")
     private Integer quantity;
     @Column(name = "price")
     private Double price;
+    @Id
     @Column(name = "fk_order")
     private Integer idOrder;
-    @Column(name = "fk_boardGame")
+    @Id
+    @Column(name = "fk_boardgame")
     private Integer idBoardGame;
 
     public OrderLineEntity(Integer quantity, Double price, Integer idOrder, Integer idBoardGame) {

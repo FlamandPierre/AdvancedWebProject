@@ -3,6 +3,7 @@ package com.spring.henallux.AdvancedWebProject.dataAccess.dao;
 import com.spring.henallux.AdvancedWebProject.dataAccess.entity.OrderEntity;
 import com.spring.henallux.AdvancedWebProject.dataAccess.repository.OrderLineRepository;
 import com.spring.henallux.AdvancedWebProject.dataAccess.repository.OrderRepository;
+import com.spring.henallux.AdvancedWebProject.dataAccess.util.MyCompositeKey;
 import com.spring.henallux.AdvancedWebProject.dataAccess.util.ProviderConverter;
 import com.spring.henallux.AdvancedWebProject.model.OrderLine;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,14 @@ public class OrderLineDAO implements OrderLineDataAccess {
     @Override
     public void saveOrderItems(ArrayList<OrderLine> items, String username) {
         OrderEntity orderEntity = orderRepository.findFirstByeMailUserOrderByIdDesc(username);
+
         for (OrderLine item : items) {
+            MyCompositeKey myKey = new MyCompositeKey();
+            myKey.setIdOrder(orderEntity.getId());
+            myKey.setIdBoardGame(item.getItem().getId());
+
+            item.setCompositeKey(myKey);
+
             orderLineRepository.save(providerConverter.orderLineToOrderLineEntity(item, orderEntity.getId()));
         }
     }

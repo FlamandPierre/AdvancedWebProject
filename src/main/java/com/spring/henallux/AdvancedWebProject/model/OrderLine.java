@@ -1,20 +1,21 @@
 package com.spring.henallux.AdvancedWebProject.model;
 
 
+import com.spring.henallux.AdvancedWebProject.dataAccess.util.MyCompositeKey;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import java.text.DecimalFormat;
 
 public class OrderLine {
-
     private Integer id;
     @NotNull
     @Min(value = 1)
     @Max(value = 99)
     private Integer quantity;
-    private Double price;
     private Item item;
+    private MyCompositeKey compositeKey;
 
     public OrderLine(Item item, Integer quantity) {
         setQuantity(quantity);
@@ -38,16 +39,20 @@ public class OrderLine {
     public void addQuantity(Integer quantity) {
         this.quantity += quantity;
     }
-    public void setPrice(Double price) { this.price = price; }
     public void setItem(Item item) {
         this.item = item;
+    }
+    public void setCompositeKey(MyCompositeKey compositeKey) {
+        this.compositeKey = compositeKey;
     }
 
     public Integer getId() { return id; }
     public Integer getQuantity() { return quantity; }
-    public Double getPrice() { return price; }
     public Item getItem() {
         return item;
+    }
+    public MyCompositeKey getCompositeKey() {
+        return compositeKey;
     }
 
     public Double getTotal() {
