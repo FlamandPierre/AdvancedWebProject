@@ -17,5 +17,18 @@
                 <h1 id="${category.getLabel()}" class="homeSection">${category.getLabel()}</h1>
             </c:forEach>
         </div>
+        <div class="homeBoardGames">
+            <c:forEach items="${items}" var="item">
+                <div class="homeItemContainer">
+                    <p class="homeItemName">Nom : ${item.name}</p>
+                    <p class="homeItemPrice">Prix : ${item.unitPrice} €</p>
+                    <a class="homeItemButtonLink" href="<spring:url value="/item?name=${item.name}"/>">
+                        <div class="homeItemButton">
+                            <p class="homeItemButtonTitle">Détails</p>
+                        </div>
+                    </a>
+                </div>
+            </c:forEach>
+        </div>
     </body>
 </html>
