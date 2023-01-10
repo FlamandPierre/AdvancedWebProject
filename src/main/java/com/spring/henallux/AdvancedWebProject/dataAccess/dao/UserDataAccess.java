@@ -6,4 +6,5 @@ public interface UserDataAccess {
     User findByUsername(String username);
     User addUser(User newUser);
     Boolean exists(String username);
+    void updatePoints(String username, Integer points);
 }

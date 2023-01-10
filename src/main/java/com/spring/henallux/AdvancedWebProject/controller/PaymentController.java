@@ -1,9 +1,6 @@
 package com.spring.henallux.AdvancedWebProject.controller;
 
-import com.spring.henallux.AdvancedWebProject.dataAccess.dao.OrderDAO;
-import com.spring.henallux.AdvancedWebProject.dataAccess.dao.OrderDataAccess;
-import com.spring.henallux.AdvancedWebProject.dataAccess.dao.OrderLineDAO;
-import com.spring.henallux.AdvancedWebProject.dataAccess.dao.OrderLineDataAccess;
+import com.spring.henallux.AdvancedWebProject.dataAccess.dao.*;
 import com.spring.henallux.AdvancedWebProject.model.Cart;
 import com.spring.henallux.AdvancedWebProject.model.Order;
 import com.spring.henallux.AdvancedWebProject.model.OrderLine;
@@ -26,11 +23,13 @@ import java.util.Date;
 public class PaymentController {
     private OrderDataAccess orderDAO;
     private OrderLineDataAccess orderLineDAO;
+    private UserDataAccess userDAO;
 
     @Autowired
-    public PaymentController(OrderDAO orderDAO, OrderLineDAO orderLineDAO) {
+    public PaymentController(OrderDAO orderDAO, OrderLineDAO orderLineDAO, UserDAO userDAO) {
         this.orderDAO = orderDAO;
         this.orderLineDAO = orderLineDAO;
+        this.userDAO = userDAO;
     }
 
     @RequestMapping(method=RequestMethod.GET)
@@ -41,10 +40,15 @@ public class PaymentController {
         newOrder.setDate(new Date());
         ArrayList<OrderLine> items = new ArrayList<>(cart.getItems().values());
         newOrder.setUser(user);
+        newOrder.setReduction((double)user.getLoyaltyPoints() / 100);
+
+        Double total = cart.getTotalReduction((double)user.getLoyaltyPoints());
+
         orderDAO.saveOrder(newOrder);
         orderLineDAO.saveOrderItems(items, user.getUsername());
 
         model.addAttribute(cart);
+        model.addAttribute("total", total);
         return "integrated:payment";
     }
 
@@ -52,6 +56,10 @@ public class PaymentController {
     public String success(Model model, @ModelAttribute("order") Cart cart, Authentication authentication) {
         User user = (User)authentication.getPrincipal();
         orderDAO.updateIsPaid(true, user.getUsername());
+
+        Integer nbPoints = (int) Math.round(cart.getTotalReduction((double)user.getLoyaltyPoints()));
+
+        userDAO.updatePoints(user.getUsername(), nbPoints);
         cart.getItems().clear();
         model.addAttribute("successMessage", "Votre paiement a bien été pris en compte.");
         return "integrated:checkout";

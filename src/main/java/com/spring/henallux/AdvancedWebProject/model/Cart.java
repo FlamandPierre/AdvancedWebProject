@@ -36,4 +36,8 @@ public class Cart {
         totalString = totalString.replace(",",".");
         return Double.parseDouble((totalString));
     }
+
+    public Double getTotalReduction(double reduction) {
+        return getTotal() - reduction / 100;
+    }
 }
