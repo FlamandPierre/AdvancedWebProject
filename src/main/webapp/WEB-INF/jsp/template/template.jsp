@@ -20,7 +20,7 @@
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
                     <a class="headerLogin" href="<spring:url value="/account"/>">Account</a>
-                    <a class="headerLogin" href="<spring:url value=""/>">Log out</a>
+                    <a class="headerLogin" href="<spring:url value="/logout"/>">Log out</a>
                 </sec:authorize>
             </div>
         </section>
