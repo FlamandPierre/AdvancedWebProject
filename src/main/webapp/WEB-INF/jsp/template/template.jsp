@@ -6,6 +6,12 @@
 <html>
     <head>
         <link type="text/css" href="<spring:url value='/css/styles.css'/>" rel="Stylesheet">
+        <spring:url var="localeFr" value="">
+            <spring:param name="locale" value="fr"/>
+        </spring:url>
+        <spring:url var="localeEn" value="">
+            <spring:param name="locale" value="en"/>
+        </spring:url>
     </head>
     <body>
         <section class="header">
