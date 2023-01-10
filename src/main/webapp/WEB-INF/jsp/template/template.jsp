@@ -14,8 +14,14 @@
                 <a href="<spring:url value="/checkout"/>">
                     <img class="headerMiddle" src="<spring:url value="/images/basketlogo.png"/>" alt="BasketImg">
                 </a>
-                <a class="headerLogin" href="<spring:url value="/login"/>">Login</a>
-                <a class="headerRegister" href="<spring:url value="/signUp"/>">Register</a>
+                <sec:authorize access="!isAuthenticated()">
+                    <a class="headerLogin" href="<spring:url value="/login"/>">Login</a>
+                    <a class="headerRegister" href="<spring:url value="/signUp"/>">Register</a>
+                </sec:authorize>
+                <sec:authorize access="isAuthenticated()">
+                    <a class="headerLogin" href="<spring:url value="/account"/>">Account</a>
+                    <a class="headerLogin" href="<spring:url value=""/>">Log out</a>
+                </sec:authorize>
             </div>
         </section>
         <section>
