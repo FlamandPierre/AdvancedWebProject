@@ -12,7 +12,7 @@
             <p class="homeFirstPara"><spring:message code="textHome" /></p>
         </div>
         <div class="homeCategory">
-            <p class="homeCategoryTitle"><spring:message code="categories" /> :</p>
+            <h1 class="homeCategoryTitle"><spring:message code="categories" /> :</h1>
             <c:forEach items="${categories}" var="category">
                 <a id="${category.getLabel()}"
                    class="homeItemButtonLink"
@@ -20,7 +20,7 @@
                     <div class="homeItemButton">
                         <c:forEach items="${translations}" var="translation">
                             <c:if test="${translation.getCategoryLabel() == category.getLabel()}">
-                                <h1>${translation.getCategoryName()}</h1>
+                                <h1 class="homeItemButtonTitle">${translation.getCategoryName()}</h1>
                             </c:if>
                         </c:forEach>
                     </div>

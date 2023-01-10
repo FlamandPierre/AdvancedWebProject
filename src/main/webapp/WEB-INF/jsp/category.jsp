@@ -7,15 +7,8 @@
         <link type="text/css" href="<spring:url value='/css/styles.css'/>" rel="Stylesheet">
     </head>
     <body class="mainContainer">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-        <div>
-            <p><spring:message code="categoryDesc"/> ${categoryTranslation.getCategoryName()}</p>
+        <div class="homeIntroduction">
+            <p class="homeFirstPara"><spring:message code="categoryDesc"/> ${categoryTranslation.getCategoryName()}</p>
         </div>
         <div class="homeBoardGames">
             <c:forEach items="${category.getBoardGames()}" var="boardGame">

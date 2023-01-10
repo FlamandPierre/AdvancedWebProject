@@ -6,9 +6,11 @@
 <head>
     <title><spring:message code="aboutUs"/></title>
 </head>
-<body>
+<body class="mainContainer">
+<div id="AboutUsText">
     <p><spring:message code="aboutUs1stPar"/></p>
     <p><spring:message code="aboutUs2ndPar"/></p>
     <p><spring:message code="aboutUs3rdPar"/></p>
+</div>
 </body>
 </html>

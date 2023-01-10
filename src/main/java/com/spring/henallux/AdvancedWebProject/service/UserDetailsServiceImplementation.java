@@ -24,6 +24,6 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
             UserDetails user = userDAO.findByUsername(username);
             return user;
         }
-        throw new UsernameNotFoundException("User not found");
+        throw new UsernameNotFoundException("UserNotFound");
     }
 }
