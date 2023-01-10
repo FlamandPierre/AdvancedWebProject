@@ -52,7 +52,7 @@ public class ProviderConverter {
         return orderEntity;
     }
 
-    public OrderLineEntity orderLineModelToOrderLineEntity(OrderLine orderLine, Integer orderId) {
+    public OrderLineEntity orderLineToOrderLineEntity(OrderLine orderLine, Integer orderId) {
         OrderLineEntity orderLineEntity = new OrderLineEntity();
 
         orderLineEntity.setPrice(orderLine.getPrice());
