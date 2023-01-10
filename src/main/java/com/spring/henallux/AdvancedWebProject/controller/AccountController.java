@@ -14,8 +14,6 @@ import org.springframework.security.core.Authentication;
 @RequestMapping(value = "/account")
 public class AccountController {
 
-
-
     @RequestMapping(method = RequestMethod.GET)
     public String getAccount(Authentication authentication, Model model) {
         User userDetails = (User) authentication.getPrincipal();

@@ -23,6 +23,9 @@
                 <a href="${localeEn}">
                     <img class="headerBtn" alt="fr" src='<spring:url value="/images/localeEn.png" />'>
                 </a>
+                <sec:authorize access="isAuthenticated()">
+                    <a class="headerLogin"><spring:message code="welcome" /> ${currentUser.firstname}</a>
+                </sec:authorize>
                 <a href="<spring:url value="/checkout"/>">
                     <img class="headerMiddle" src="<spring:url value="/images/basketlogo.png"/>" alt="BasketImg">
                 </a>

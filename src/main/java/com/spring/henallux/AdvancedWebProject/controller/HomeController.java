@@ -7,6 +7,7 @@ import com.spring.henallux.AdvancedWebProject.dataAccess.dao.ItemDataAccess;
 import com.spring.henallux.AdvancedWebProject.model.Cart;
 import com.spring.henallux.AdvancedWebProject.model.Item;
 import com.spring.henallux.AdvancedWebProject.model.Order;
+import com.spring.henallux.AdvancedWebProject.model.User;
 import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.security.core.Authentication;
+
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -41,9 +44,12 @@ public class HomeController {
     }
 
     @RequestMapping (method = RequestMethod.GET)
-    public String getHome (Model model, @ModelAttribute(value = "order") Cart cart) {
+    public String getHome (Authentication authentication,Model model, @ModelAttribute(value = "order") Cart cart) {
         items = itemDAO.findAll();
-
+        if(authentication != null){
+            User userDetails = (User) authentication.getPrincipal();
+            model.addAttribute("currentUser",userDetails);
+        }
         model.addAttribute("categories", categoryDAO.getAllCategories());
         model.addAttribute("items", items);
         return "integrated:home";
