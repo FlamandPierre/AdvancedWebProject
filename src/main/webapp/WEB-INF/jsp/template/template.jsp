@@ -44,6 +44,7 @@
         </section>
         <section class="footer">
             <p>©Baxydia 2023</p>
+            <a href="<spring:url value="/about_us"/>"><spring:message code="moreAboutUs"/></a>
         </section>
     </body>
 </html>
