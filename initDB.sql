@@ -73,12 +73,12 @@ CREATE TABLE board_game
 
 CREATE TABLE order_line(
     fk_order INTEGER NOT NULL,
-    fk_board_game INTEGER NOT NULL,
+    fk_boardgame INTEGER NOT NULL,
     quantity INTEGER NOT NULL,
     price DOUBLE NOT NULL,
-    PRIMARY KEY (fk_order, fk_board_game),
+    PRIMARY KEY (fk_order, fk_boardgame),
     FOREIGN KEY (fk_order) REFERENCES `order` (id),
-    FOREIGN KEY (fk_board_game) REFERENCES board_game (id)
+    FOREIGN KEY (fk_boardgame) REFERENCES board_game (id)
 );
 
 INSERT INTO user(username, password, firstname, lastname, loyalty_points, address, phone_number, birthdate, authorities, account_non_expired, account_non_locked, credentials_non_expired, enabled)
@@ -110,5 +110,5 @@ VALUES ('Carcassonne', 'Zman Games', 35.20, 'Construisez une cité médiévale, 
        ('Risk', 'Hasbro', 35.00, 'Le jeu de conquête stratégique ! Le monde appartient aux audacieux, l''êtes-vous assez pour gagner ? Déplacez vos régiments, choisissez votre stratégie et que la conquête du monde commence !', 'WARG'),
        ('Mémoire 44', 'Days of wonder', 59.95, 'Mémoire 44 est un jeu de société destiné à transmettre aux jeunes générations la mémoire des évènements des débarquements de 1944 et de la libération de la France.', 'WARG');
 
-INSERT INTO order_line(quantity, price, fk_order, fk_board_game)
+INSERT INTO order_line(quantity, price, fk_order, fk_boardgame)
 VALUES (1, 35.20, 1, 1);
